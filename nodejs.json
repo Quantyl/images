@@ -1,0 +1,42 @@
+{
+  "Name": "Node.js",
+  "Author": "Skygate",
+  "Description": "Node.js runtime environment for JavaScript applications",
+  "Image": "node:18-alpine",
+  "Startup": "npm start",
+  "Variables": [
+    {
+      "Name": "NODE_ENV",
+      "Description": "Node environment (development/production)",
+      "Required": false,
+      "Default": "production"
+    },
+    {
+      "Name": "PORT",
+      "Description": "Port to run the application on",
+      "Required": true,
+      "Default": "3000"
+    }
+  ],
+  "Scripts": {
+    "Install": "npm install",
+    "Start": "npm start"
+  },
+  "Config": {
+    "Ports": [
+      {
+        "Name": "App Port",
+        "Description": "Main application port",
+        "Target": 3000,
+        "Default": 3000
+      }
+    ],
+    "Mounts": [
+      {
+        "Source": "/app",
+        "Target": "/app",
+        "ReadOnly": false
+      }
+    ]
+  }
+}

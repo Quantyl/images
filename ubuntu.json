@@ -1,0 +1,36 @@
+{
+  "Name": "Ubuntu",
+  "Author": "Skygate",
+  "Description": "Ubuntu Linux container for general purpose applications",
+  "Image": "ubuntu:22.04",
+  "Startup": "/bin/bash",
+  "Variables": [
+    {
+      "Name": "DEBIAN_FRONTEND",
+      "Description": "Debian frontend for package installation",
+      "Required": false,
+      "Default": "noninteractive"
+    }
+  ],
+  "Scripts": {
+    "Install": "apt-get update && apt-get install -y curl wget",
+    "Start": "/bin/bash"
+  },
+  "Config": {
+    "Ports": [
+      {
+        "Name": "Custom Port",
+        "Description": "Custom application port",
+        "Target": 8080,
+        "Default": 8080
+      }
+    ],
+    "Mounts": [
+      {
+        "Source": "/app",
+        "Target": "/app",
+        "ReadOnly": false
+      }
+    ]
+  }
+}

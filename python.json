@@ -1,0 +1,42 @@
+{
+  "Name": "Python",
+  "Author": "Skygate",
+  "Description": "Python runtime environment for Python applications",
+  "Image": "python:3.11-alpine",
+  "Startup": "python app.py",
+  "Variables": [
+    {
+      "Name": "PYTHONPATH",
+      "Description": "Python path for modules",
+      "Required": false,
+      "Default": "/app"
+    },
+    {
+      "Name": "PORT",
+      "Description": "Port to run the application on",
+      "Required": true,
+      "Default": "8000"
+    }
+  ],
+  "Scripts": {
+    "Install": "pip install -r requirements.txt",
+    "Start": "python app.py"
+  },
+  "Config": {
+    "Ports": [
+      {
+        "Name": "App Port",
+        "Description": "Main application port",
+        "Target": 8000,
+        "Default": 8000
+      }
+    ],
+    "Mounts": [
+      {
+        "Source": "/app",
+        "Target": "/app",
+        "ReadOnly": false
+      }
+    ]
+  }
+}
