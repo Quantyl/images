@@ -2,5 +2,5 @@
   "./nodejs.json",
   "./python.json",
   "./ubuntu.json",
-  "./paper.json"
+  "https://raw.githubusercontent.com/Quantyl/images/refs/heads/main/paper.json"
 ]
