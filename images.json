@@ -1,5 +1,6 @@
 [
   "./nodejs.json",
   "./python.json",
-  "./ubuntu.json"
+  "./ubuntu.json",
+  "./paper.json"
 ]
