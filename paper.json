@@ -1,0 +1,73 @@
+{
+  "Name": "Paper Minecraft Server",
+  "Author": "Quantyl",
+  "Description": "High-performance Minecraft server software based on Spigot/Bukkit with additional optimizations",
+  "Image": "openjdk:17-jdk-alpine",
+  "Startup": "java -Xms{{SERVER_MEMORY}}M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar paper.jar --nogui",
+  "Variables": [
+    {
+      "Name": "SERVER_MEMORY",
+      "Description": "Amount of memory to allocate to the server (in MB)",
+      "Required": true,
+      "Default": "1024"
+    },
+    {
+      "Name": "SERVER_PORT", 
+      "Description": "Port for the Minecraft server",
+      "Required": true,
+      "Default": "25565"
+    },
+    {
+      "Name": "MOTD",
+      "Description": "Message of the day for the server",
+      "Required": false,
+      "Default": "A Paper Minecraft Server"
+    },
+    {
+      "Name": "DIFFICULTY",
+      "Description": "Server difficulty (peaceful, easy, normal, hard)",
+      "Required": false,
+      "Default": "normal"
+    },
+    {
+      "Name": "GAMEMODE",
+      "Description": "Default gamemode (survival, creative, adventure, spectator)",
+      "Required": false,
+      "Default": "survival"
+    },
+    {
+      "Name": "MAX_PLAYERS",
+      "Description": "Maximum number of players",
+      "Required": false,
+      "Default": "20"
+    },
+    {
+      "Name": "ONLINE_MODE",
+      "Description": "Enable online mode (authentication)",
+      "Required": false,
+      "Default": "true"
+    }
+  ],
+  "Scripts": {
+    "Install": "apk add --no-cache curl && curl -o paper.jar https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/497/downloads/paper-1.20.4-497.jar && echo 'eula=true' > eula.txt",
+    "Start": "java -Xms{{SERVER_MEMORY}}M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar paper.jar --nogui"
+  },
+  "Config": {
+    "Ports": [
+      {
+        "Name": "Minecraft Server",
+        "Description": "Main Minecraft server port",
+        "Target": 25565,
+        "Default": 25565
+      }
+    ],
+    "Mounts": [
+      {
+        "Source": "/minecraft",
+        "Target": "/minecraft",
+        "ReadOnly": false
+      }
+    ]
+  },
+  "StopCommand": "stop"
+}
