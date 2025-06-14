@@ -1,6 +1,6 @@
 [
-  "./nodejs.json",
-  "./python.json",
-  "./ubuntu.json",
+  "https://raw.githubusercontent.com/Quantyl/images/refs/heads/main/nodejs.json",
+  "https://raw.githubusercontent.com/Quantyl/images/refs/heads/main/python.json",
+  "https://raw.githubusercontent.com/Quantyl/images/refs/heads/main/ubuntu.json",
   "https://raw.githubusercontent.com/Quantyl/images/refs/heads/main/paper.json"
 ]
